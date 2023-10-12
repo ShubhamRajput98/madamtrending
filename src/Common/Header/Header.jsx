@@ -7,9 +7,15 @@ import { FiShoppingBag } from 'react-icons/fi'
 
 // import images
 import logo from '../../Assist/Images/Madam Trending 1.png'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 
 export const Header = () => {
+
+  const location = useLocation();
+  const { pathname } = location;
+
+  console.log(pathname)
+
   return (
     <>
       {/* header */}
@@ -43,8 +49,8 @@ export const Header = () => {
 
         {/* nav links */}
         <div className="flex justify-center items-center gap-3 bg-blue p-3">
-          <NavLink to={"/"} className="flex justify-center items-center w-16 text-white font-noto font-normal transition-all hover:font-bold hover:underline hover:underline-offset-1">Home</NavLink>
-          <NavLink to={"product"} className="flex justify-center items-center w-16 text-white font-noto font-normal  hover:font-bold hover:underline hover:underline-offset-1">Product</NavLink>
+          <NavLink to={"/"} className={`${pathname == "/" && "font-bold underline underline-offset-1"} flex justify-center items-center w-16 text-white font-noto font-normal transition-all hover:font-bold hover:underline hover:underline-offset-1`}>Home</NavLink>
+          <NavLink to={"product"} className={`${pathname == "/product" && "font-bold underline underline-offset-1"} flex justify-center items-center w-16 text-white font-noto font-normal transition-all hover:font-bold hover:underline hover:underline-offset-1`}>Product</NavLink>
         </div>
 
       </nav>
